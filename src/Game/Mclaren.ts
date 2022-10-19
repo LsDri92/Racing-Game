@@ -13,7 +13,7 @@ export class Mclaren extends PhysicsContainer implements IHitbox {
         super();
 
         this.hitbox = new Graphics();
-        this.hitbox.beginFill(0xFF0000, 0.2);
+        this.hitbox.beginFill(0x3a3a3a, 0.2);
         this.hitbox.drawRect(0, 0, 16, 16);
         this.hitbox.endFill();
 
@@ -45,19 +45,17 @@ export class Mclaren extends PhysicsContainer implements IHitbox {
 
         if (Keyboard.state.get("ArrowRight")) {
             this.speed.x = Mclaren.MOVE_PLAYER;
-            this.playerCar.angle = 15;
-            this.playerCar.scale.x = 1;
+            
 
         } else if (Keyboard.state.get("ArrowLeft")) {
             this.speed.x = -Mclaren.MOVE_PLAYER;
-            this.playerCar.angle = -15;
-            this.playerCar.scale.x = -1;
+         
 
         } else {
             this.speed.x = 0;
         }
 
-        if (Keyboard.state.get("ArrowDown")) {
+       /* if (Keyboard.state.get("ArrowDown")) {
             this.speed.y = Mclaren.MOVE_PLAYER;
             this.playerCar.angle = 0;
             this.playerCar.scale.y = 1;
@@ -70,7 +68,7 @@ export class Mclaren extends PhysicsContainer implements IHitbox {
         } else {
             this.speed.y = 0;
         }
-
+*/
 
     }
 

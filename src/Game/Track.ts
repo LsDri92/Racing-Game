@@ -8,7 +8,7 @@ export class Track extends PhysicsContainer implements IHitbox{
 
     constructor() {
         super()
-        this.racetrack = new TilingSprite(Texture.from("racetrack"),265,-3500);
+        this.racetrack = new TilingSprite(Texture.from("racetrack"),265,-50000);
 
         this.trackHitbox = new Graphics;
         this.trackHitbox.beginFill(0x001111, 0.2);
