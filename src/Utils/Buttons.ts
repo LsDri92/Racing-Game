@@ -7,6 +7,7 @@ export class Button extends Container{
     private down:Texture;
     private over:Texture;
     private spr:Sprite;
+    static on: any;
 
     constructor (def:Texture, down:Texture, over:Texture){
 

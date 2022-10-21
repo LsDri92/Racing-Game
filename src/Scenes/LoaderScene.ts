@@ -1,9 +1,11 @@
-
 import { Graphics, Loader } from "pixi.js";
 import { SceneBase } from "../utils/SceneBase";
 import { SceneManager } from "../utils/SceneManager";
 import { assets } from "../assets";
-import { TestScene } from "./TestScene"
+//import { TestScene } from "./TestScene"
+import { MainMenuScene } from "./MainMenuScene";
+import { WebfontLoaderPlugin } from "pixi-webfont-loader";
+
 
 
 export class LoaderScene extends SceneBase {
@@ -32,17 +34,24 @@ export class LoaderScene extends SceneBase {
 
         this.downloadAssets();
 
-
+       
 
     }
 
+
+    
+    
     private downloadAssets() {
+        Loader.registerPlugin(new WebfontLoaderPlugin);
         Loader.shared.add(assets);
         Loader.shared.onComplete.once(this.whenLoadFinished.bind(this));
+        
         Loader.shared.onProgress.add((Loader) => this.setBarPercent(Loader.progress));
+       
         Loader.shared.load();
     }
 
+    
     private setBarPercent(percent: number) {
 
         const factor = percent / 100;
@@ -64,7 +73,7 @@ export class LoaderScene extends SceneBase {
 
     private whenLoadFinished() {
 
-
-        SceneManager.changeScene(new TestScene);
+       
+        SceneManager.changeScene(new MainMenuScene);
     }
 }

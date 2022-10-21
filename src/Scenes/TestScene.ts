@@ -6,6 +6,11 @@ import { Track } from "../Game/Track";
 import { IUpdateable } from "../Utils/IUpdateable";
 import { SceneBase } from "../utils/SceneBase";
 import { Ferrari } from "../Game/Ferrari";
+
+
+
+
+
 //import { SceneManager } from "../utils/SceneManager";
 
 export class TestScene extends SceneBase implements IUpdateable {
@@ -26,6 +31,9 @@ export class TestScene extends SceneBase implements IUpdateable {
 
     constructor() {
         super()
+
+
+
         this.world = new Container();
         this.addChild(this.world)
 
@@ -70,7 +78,7 @@ export class TestScene extends SceneBase implements IUpdateable {
 
 
 
-        this.infoText = new Text("", { fontFamily: "Arial", fontSize: 15, fill: 0xFFFFFF });
+        this.infoText = new Text("", { fontFamily: "GravityFont", fontSize: 15, fill: 0xFFFFFF });
         this.infoText.toGlobal(this.world);
         this.infoText.position.set(560, 25);
         this.infoText.scale.set(0.8);
@@ -102,7 +110,7 @@ export class TestScene extends SceneBase implements IUpdateable {
             riv.scale.y = -1;
             this.world.addChild(riv);
             this.rival.push(riv);
-      
+
             const red = new Ferrari();
             red.position.set(Math.random() * 249, -20);
             this.world.addChild(red);
@@ -115,10 +123,9 @@ export class TestScene extends SceneBase implements IUpdateable {
             this.world.scale.x.toFixed(1) + ", " + this.world.scale.y.toFixed(1);
 
 
-
         //mercedes
         for (let riv of this.rival) {
-            riv.speed.y = 180;
+            riv.speed.y = 200;
             riv.update(deltaMs / 1000);
 
             const overlap = checkColission(this.mclaren, riv);
@@ -146,7 +153,7 @@ export class TestScene extends SceneBase implements IUpdateable {
 
         //ferrari
         for (let red of this.ferrari) {
-            red.speed.y = 200;
+            red.speed.y = 220;
             red.update(deltaMs / 1000);
 
             const overlap2 = checkColission(this.mclaren, red);
@@ -179,7 +186,7 @@ export class TestScene extends SceneBase implements IUpdateable {
             this.mclaren.destroy();
         }
 
-        if (this.gameSpeed > 500){
+        if (this.gameSpeed > 500) {
             this.gameSpeed = 500;
         }
 

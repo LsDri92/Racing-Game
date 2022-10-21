@@ -1,3 +1,4 @@
+
 import { Application, Ticker } from "pixi.js";
 import { Keyboard } from "./Keyboard";
 import { SceneBase } from "./SceneBase";
@@ -24,6 +25,7 @@ export namespace SceneManager {
         });
 
         Keyboard.initialize();
+
 
         window.addEventListener("resize", () => {
             console.log("resized!");
